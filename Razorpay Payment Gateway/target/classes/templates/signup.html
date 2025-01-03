@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" th:replace=~{base::layout(~{::section})}>
+<head>
+<meta charset="UTF-8">
+<title>this is home page</title>
+</head>
+<body>
+
+
+
+
+<section class="bg-light py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-sm-10 col-md-8 col-lg-6">
+        <div class="my-card shadow-lg p-4 rounded bg-white">
+        
+        
+        
+          <div class="text-center mb-3">
+            <img src="../img/register.png" style="width:50px;" alt="Register Icon">
+          </div>
+          
+     
+        <div th:if="${message}" th:classappend="${message.type}" class="alert" role="alert">
+    <p th:text="${message.content}"></p>
+    <!--<th:block th:remove="all"></th:block>-->
+</div>
+        
+          
+          <h1 class="text-center mb-3 text-primary">Register Here!!</h1>
+          
+          
+          
+          <form  action="" th:action="@{/do_register}" method="post" th:object="${user}">
+          
+          
+            <!-- Name Field -->
+            <div class="form-group mb-3">
+              <label for="name-field" class="form-label fw-bold">Your Name</label>
+              <input 
+              name="name"
+                type="text" 
+                class="form-control   border-primary" 
+                 
+                id ="name-field" 
+                placeholder="Enter your name" 
+                required
+                th:value="${user.name}"
+                >
+            </div>
+           <!-- th:classappend="${fields.hasErrors('name') ? 'is-invalid ':''}" -->
+             
+            
+            
+            <!-- <div class="invalid-feedback" th:each="e:${#fields.errors('name')}" th:text="${e}">
+                 Please provide a valid city.
+               </div> -->
+            
+            
+            
+
+            <!--Email Field -->
+            <div class="form-group mb-3">
+              <label for="email-field" class="form-label fw-bold">Your Email</label>
+              <input 
+              name="email"
+                type="email" 
+                class="form-control border-primary" 
+                id="email-field" 
+                placeholder="Enter your email" 
+                required
+                th:value="${user.email}"
+                >
+                
+            </div>
+            
+            
+            
+
+            <!-- Password Field -->
+            <div class="form-group mb-3">
+              <label for="password-field" class="form-label fw-bold">Your Password</label>
+              <input 
+              name="password"
+                type="password" 
+                class="form-control border-primary" 
+                id="password-field" 
+                placeholder="Enter your password" 
+                required>
+            </div>
+            
+            
+            
+
+            <!-- Textarea Field -->
+            <div class="form-group mb-3">
+              <label for="about-field" class="form-label fw-bold">About Yourself</label>
+              <textarea
+              name="about"
+                th:value="${user.about}" 
+                id="about-field" 
+                class="form-control border-primary" 
+                rows="4" 
+                placeholder="Tell us something about yourself"></textarea>
+            </div>
+            
+            
+            
+            
+
+            <!-- Accept Terms and Conditions -->
+            <div class="form-group mb-3 text-center">
+              <div class="form-check">
+                <input  class="form-check-input" type="checkbox" name="agreement" id="terms-check" required>
+                <label class="form-check-label" for="terms-check">
+                  I agree to the <a href="#" class="text-primary text-decoration-none fw-bold">Terms & Conditions</a>
+                </label>
+              </div>
+            </div>
+            
+            
+            
+            
+
+            <!-- Buttons -->
+            <div class="d-flex justify-content-between">
+              <button type="submit" class="btn btn-primary px-4">Submit</button>
+              <button type="reset" class="btn btn-warning px-4">Reset</button>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+     
+
+
+ 
+
+</body>
+</html>
